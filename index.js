@@ -1,14 +1,16 @@
 var rect = "./rectangle";
 
 function solveRect(l, b) {
-  console.log("Solving for rectangle with l = " + l + " and b = " + b);
-
-  if (l <= 0 || b <= 0) {
-    console.log("Dimensions should be greater than zero");
-  } else {
-    console.log("Area: " + rect.area(l, b));
-    console.log("Perimeter: " + rect.perimeter(l, b));
-  }
+  console.log("Solving");
+  rect(l, b, (err, rectangle) => {
+    if (err) {
+      console.log("ERROR: ", err.message);
+    } else {
+      console.log("Area: " + rectangle.area());
+      console.log("Perimeter: " + rectangle.perimeter());
+    }
+  });
+  console.log("Completed");
 }
 
 solveRect(2, 4);
